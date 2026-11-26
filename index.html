@@ -2,22 +2,48 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0TSF5GCZHQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TSF5GCZHQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-0TSF5GCZHQ');
-</script>
-    
+        gtag('config', 'G-0TSF5GCZHQ');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILLIAM VAUGHAN</title>
+    <title>William Vaughan</title>
+    <meta name="description" content="William Vaughan. Get in touch by email or on LinkedIn.">
+    <link rel="canonical" href="https://www.williamvaughan.co.uk/">
+
+    <!-- Link previews (LinkedIn, WhatsApp, iMessage, Slack) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.williamvaughan.co.uk/">
+    <meta property="og:title" content="William Vaughan">
+    <meta property="og:description" content="Get in touch by email or on LinkedIn.">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✉</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+
+    <!-- Helps Google tie your name to your LinkedIn -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "William Vaughan",
+        "url": "https://www.williamvaughan.co.uk/",
+        "sameAs": ["https://www.linkedin.com/in/vaughan198"]
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -26,18 +52,32 @@
         }
 
         :root {
-            --text-primary: #777777;
-            --text-secondary: #4a4a4a;
+            --text: #666666;            /* 5.5:1 on the background (was #777, 4.3:1) */
+            --text-strong: #4a4a4a;
             --background: #fafafa;
-            --accent: #2563eb;
-            --accent-hover: #1e40af;
+            --surface: #ffffff;
+            --hover-bg: #666666;
+            --hover-text: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #a8a8a8;
+                --text-strong: #d0d0d0;
+                --background: #121212;
+                --surface: #1e1e1e;
+                --hover-bg: #d0d0d0;
+                --hover-text: #121212;
+                --shadow: rgba(0, 0, 0, 0.4);
+            }
         }
 
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 200;
+            font-weight: 300;
             background-color: var(--background);
-            color: var(--text-primary);
+            color: var(--text);
             line-height: 1.6;
             display: flex;
             align-items: center;
@@ -60,21 +100,14 @@
             font-weight: 200;
             letter-spacing: 0.2em;
             margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .subtitle {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-weight: 400;
+            color: var(--text);
         }
 
         .email {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #777777;
+            color: var(--text);
             text-decoration: none;
             font-size: 1.125rem;
             padding: 0.75rem 1.5rem;
@@ -82,13 +115,6 @@
             border-radius: 0.5rem;
             transition: all 0.2s ease;
             margin-bottom: 0.5rem;
-        }
-
-        .email:hover {
-            background-color: #777777;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(119, 119, 119, 0.2);
         }
 
         .email::before {
@@ -110,18 +136,11 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background-color: white;
-            color: var(--text-secondary);
+            background-color: var(--surface);
+            color: var(--text-strong);
             text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .social-links a:hover {
-            background-color: #777777;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(119, 119, 119, 0.2);
+            box-shadow: 0 2px 8px var(--shadow);
         }
 
         .social-links svg {
@@ -130,10 +149,34 @@
             fill: currentColor;
         }
 
+        /* Hover only on devices with a real pointer, so taps on phones don't leave it stuck on */
+        @media (hover: hover) {
+            .email:hover {
+                background-color: var(--hover-bg);
+                color: var(--hover-text);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px var(--shadow);
+            }
+
+            .social-links a:hover {
+                background-color: var(--hover-bg);
+                color: var(--hover-text);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px var(--shadow);
+            }
+        }
+
+        /* Visible outline for keyboard users (Tab) */
+        .email:focus-visible,
+        .social-links a:focus-visible {
+            outline: 2px solid var(--text-strong);
+            outline-offset: 3px;
+        }
+
         .divider {
             width: 60px;
             height: 2px;
-            background: linear-gradient(to right, transparent, var(--text-secondary), transparent);
+            background: linear-gradient(to right, transparent, var(--text-strong), transparent);
             margin: 0.5rem auto;
             opacity: 0.3;
         }
@@ -141,10 +184,6 @@
         @media (max-width: 640px) {
             h1 {
                 font-size: 1.5rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
             }
 
             .email {
@@ -166,7 +205,8 @@
         }
 
         .container > * {
-            animation: fadeIn 0.6s ease-out forwards;
+            /* "both" keeps items hidden during their delay (was "forwards", which made them flash) */
+            animation: fadeIn 0.6s ease-out both;
         }
 
         .container > *:nth-child(2) {
@@ -180,30 +220,41 @@
         .container > *:nth-child(4) {
             animation-delay: 0.3s;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .container > * {
+                animation: none;
+            }
+
+            .email,
+            .social-links a {
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <h1>WILLIAM VAUGHAN</h1>
-        
-        <div class="divider"></div>
-        
+
+        <div class="divider" aria-hidden="true"></div>
+
         <a href="mailto:wv@williamvaughan.co.uk" class="email">
             wv@williamvaughan.co.uk
         </a>
-        
+
         <div class="social-links">
             <a href="mailto:wv@williamvaughan.co.uk" aria-label="Email" title="Email">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
             </a>
             <a href="https://www.linkedin.com/in/vaughan198" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
             </a>
         </div>
-    </div>
+    </main>
 </body>
 </html>
